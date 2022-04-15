@@ -7,31 +7,105 @@ body{
     flex-direction: column;
 }
 
+
+#winner_div{
+    display:none;
+    z-index: 1;
+}
+
+#containerWinner{
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, 5%);
+    background-color: rgb(0, 225, 255);
+    font-size: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;    
+}
+
+.restart{
+    width: 50%;
+    height: 4vh;
+    background-color: rgb(242, 255, 0);
+    position: relative;
+    margin: 1vh;
+    margin-bottom: 0;
+    height: 5vh;
+    width: 200px;
+    border-radius: 8px;
+    appearance: auto;
+    border-width: 0;
+    color: rgb(0, 0, 0);
+    font-size: 2.5vh;
+    font-weight: bold;
+    box-shadow: 2.5px 5px #0a0a0a0e;
+    cursor: pointer;
+    border-color: rgb(85, 85, 85);
+    border-width: 1px;
+}
+
 .title{
     text-align: center;
-    font-size: 10vh;
+    font-size: 9vh;
     padding: 1vh;
 }
 
 .gameGrid{
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 5%);
     display: grid;
     grid-template-columns: repeat(3,100px);
     grid-template-rows: repeat(3,100px);
     background-color: black;
     gap: 10px;
-    height: auto;
-    width: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    height: calc(100px * 3 + 10px * 3);
+    width: calc(100px * 3 + 10px * 3);
 }
 
 .square{
     background-color: aliceblue;
+    cursor: pointer;
 }
 
-.square::after {
-    content: "\274c"; /* use the hex value here... */
+
+.square{
+    position: relative;
+    font-size: 50px; 
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+.o.open:hover::after{
+    position: relative;
+    content: "⭕"; /* use the hex value here... */
     font-size: 50px; 
     color: rgb(19, 13, 13);
-    line-height: 100px;
-    text-align: center;
+}
+
+.x.open:hover::after{
+    position: relative;
+    content: "❌"; /* use the hex value here... */
+    font-size: 50px; 
+    color: rgb(19, 13, 13);
+}
+
+.o.closed:hover{
+    cursor: not-allowed;
+}
+
+.x.closed:hover{
+    cursor: not-allowed;
 }
